@@ -35,7 +35,7 @@ const Header = () => {
         justify={"space-between"}
         align={"center"}
         px={12}
-        py={8}
+        py={4}
         bg={" rgba(21,2,2,0, 0)"}
       >
         <div>

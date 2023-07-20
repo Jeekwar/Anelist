@@ -1,7 +1,16 @@
 "use client";
 import { useQuery, gql } from "@apollo/client";
 import queryList from "@/src/config/query";
-import { Box, Card, Flex, Grid, GridItem, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  Flex,
+  Grid,
+  GridItem,
+  Image,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const ListAnime = ({ ...props }) => {
@@ -19,16 +28,17 @@ const ListAnime = ({ ...props }) => {
   }
 
   return (
-    <Box p={12} {...props}>
-      <Grid
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(5, 1fr)"
+    <Box p={12} {...props} position={"relative"} background={"black"}>
+      <div className="shadow-jumbotron"></div>
+      <SimpleGrid
+        columns={[2, 5]}
         justifyContent={"center"}
-        rowGap={8}
+        pt={12}
+        spacing={5}
       >
         {data.Page.media.map((item: any, index: number) => {
           return (
-            <GridItem key={index} colSpan={1}>
+            <GridItem key={index}>
               <Flex justify={"center"}>
                 <motion.div whileHover={{ scale: 1.2 }}>
                   <Card overflow={"hidden"}>
@@ -65,7 +75,7 @@ const ListAnime = ({ ...props }) => {
             </GridItem>
           );
         })}
-      </Grid>
+      </SimpleGrid>
     </Box>
   );
 };
