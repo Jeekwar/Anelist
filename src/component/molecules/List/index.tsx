@@ -35,43 +35,34 @@ const ListAnime = ({ ...props }) => {
         justifyContent={"center"}
         pt={12}
         spacing={5}
+        spacingY={12}
       >
         {data.Page.media.map((item: any, index: number) => {
           return (
             <GridItem key={index}>
-              <Flex justify={"center"}>
-                <motion.div whileHover={{ scale: 1.2 }}>
-                  <Card overflow={"hidden"}>
-                    <Image
-                      src={item.coverImage.large}
-                      width={160}
-                      height={240}
-                      alt={""}
-                      borderRadius="md"
-                    />
-                    <motion.div
-                      whileHover={{
-                        bottom: 0,
-                      }}
-                      style={{
-                        position: "absolute",
-                        bottom: -78,
-                        minHeight: "100px",
-                        width: "100%",
-                        borderRadius: "4px",
-                        background:
-                          "linear-gradient(to top, black 100%, transparent)",
-                      }}
-                    >
-                      <Flex justify={"center"} height={"100%"}>
-                        <Text size={"0.8rem"} color={"white"}>
-                          {item.title.romaji}
-                        </Text>
-                      </Flex>
-                    </motion.div>
-                  </Card>
-                </motion.div>
-              </Flex>
+              <motion.div
+                whileHover={{ scale: 1.2 }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                }}
+              >
+                <Flex justify={"center"}>
+                  <Image
+                    src={item.coverImage.large}
+                    width={160}
+                    height={240}
+                    alt={""}
+                    borderRadius="md"
+                  />
+                </Flex>
+                <Flex justify={"center"} height={"100%"}>
+                  <Text size={"0.8rem"} color={"white"} align={"center"}>
+                    {item.title.romaji}
+                  </Text>
+                </Flex>
+              </motion.div>
             </GridItem>
           );
         })}
